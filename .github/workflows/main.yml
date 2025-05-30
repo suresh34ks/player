@@ -3,30 +3,39 @@ name: Flutter Android Build
 on:
   push:
     branches:
-      - master # Or 'master', depending on the default branch name of the Koel Player repo
+      - master # Ensure this matches your default branch ('main' or 'master')
   pull_request:
     branches:
-      - master # Or 'master'
+      - master # Ensure this matches your default branch
+
 jobs:
   build_android:
-    runs-on: ubuntu-latest # Use a Linux runner for building Android APKs
+    runs-on: ubuntu-latest # Using a Linux runner for building Android APKs
+
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4 # Action to check out your repository code
+        uses: actions/checkout@v4 # Updated to v4 (latest and recommended)
+
+      - name: Set up Java
+        uses: actions/setup-java@v4 # Added/Updated to v4 for robust Java environment setup
+        with:
+          distribution: 'temurin' # Recommended distribution for better compatibility
+          java-version: '17' # Recommended LTS version for Flutter/Android builds (Java 11 is also good)
 
       - name: Set up Flutter
-        uses: subosito/flutter-action@v2 # Action to set up the Flutter SDK
+        uses: subosito/flutter-action@v2 # Updated to v2 (latest and recommended for Flutter setup)
         with:
-          channel: '3.7.0' # Use the stable Flutter channel
+          # Changed from '3.7.0' to '3.19.6' for better resolution by the action.
+          flutter-version: '3.19.6'
 
       - name: Get Flutter Dependencies
         run: flutter pub get # Install all required Dart/Flutter packages
 
       - name: Build Android Release APK
-        run: flutter build apk --release # Build the Android APK in release mode. This will generate 'app-release.apk'
+        run: flutter build apk --release # Build the Android APK in release mode.
 
       - name: Upload Release APK as Artifact
-        uses: actions/upload-artifact@v4 # Action to upload the generated APK as a workflow artifact
+        uses: actions/upload-artifact@v4 # Updated to v4 (latest and recommended)
         with:
           name: koel-player-release-apk # Name for the artifact
           path: build/app/outputs/flutter/apk/app-release.apk # Path to the generated APK file
