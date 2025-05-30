@@ -7,7 +7,6 @@ on:
   pull_request:
     branches:
       - master # Or 'master'
-
 jobs:
   build_android:
     runs-on: ubuntu-latest # Use a Linux runner for building Android APKs
