@@ -26,7 +26,7 @@ jobs:
         uses: subosito/flutter-action@v2 # Updated to v2 (latest and recommended for Flutter setup)
         with:
           # Changed from '3.7.0' to '3.19.6' for better resolution by the action.
-          flutter-version: '3.19.6'
+          flutter-version: '3.32.1'
 
       - name: Get Flutter Dependencies
         run: flutter pub get # Install all required Dart/Flutter packages
