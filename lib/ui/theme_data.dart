@@ -13,7 +13,7 @@ ThemeData themeData(BuildContext context) {
       space: 0,
       thickness: .5,
     ),
-    tabBarTheme: TabBarTheme(
+    tabBarTheme: TabBarThemeData(
       labelColor: Colors.white,
       unselectedLabelColor: Colors.white54,
       indicatorColor: AppColors.highlight,
@@ -56,8 +56,6 @@ ThemeData themeData(BuildContext context) {
       trackShape: FullWidthSliderTrackShape(),
       thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 8),
     ),
-
-    /// Text with a color that contrasts with the card and canvas colors.
     textTheme: Theme.of(context)
         .textTheme
         .copyWith(
@@ -119,8 +117,6 @@ ThemeData themeData(BuildContext context) {
           displayColor: AppColors.text,
           bodyColor: AppColors.text,
         ),
-
-    // The default theme for ElevatedButton widgets.
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
         shape: WidgetStateProperty.all(
@@ -142,8 +138,6 @@ ThemeData themeData(BuildContext context) {
         padding: WidgetStateProperty.all(AppDimensions.inputPadding),
       ),
     ),
-
-    // The default theme for OutlinedButton widgets.
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
         foregroundColor: AppColors.text,
@@ -194,8 +188,7 @@ ThemeData themeData(BuildContext context) {
         padding: AppDimensions.inputPadding,
       ),
     ),
-
-    cardTheme: CardTheme(
+    cardTheme: CardThemeData(
       clipBehavior: Clip.antiAlias,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
       elevation: 0,
