@@ -49,4 +49,4 @@ jobs:
         uses: actions/upload-artifact@v4 # Updated to v4 (latest and recommended)
         with:
           name: koel-player-release-apk # Name for the artifact
-          path: build/app/outputs/flutter/apk/app-release.apk # Path to the generated APK file
+          path: build/app/outputs/flutter-apk/app-release.apk # Path to the generated APK file
